@@ -1,153 +1,104 @@
-# PokéPlanner - Aplicación de Gestión de Tareas con Temática Pokémon
+# PokéPlanner
 
-## Proyecto Integrador de Aprendizaje
-**Materia:** Aplicaciones Móviles  
-**Tecnología:** React Native con Expo
+A cross-platform mobile task manager that combines productivity with Pokémon-inspired gamification.
 
----
+PokéPlanner was built with **React Native** and **Expo** and tested on both Android and iOS. Users can organize tasks, track them through a calendar, earn experience and rewards for completing them, collect Pokémon, unlock badges, and maintain their progress between sessions.
 
-## Descripción del Proyecto
+## Features
 
-PokéPlanner es una aplicación móvil que combina la gestión de tareas con elementos de gamificación inspirados en el universo Pokémon. La aplicación permite a los usuarios organizar sus actividades diarias mientras coleccionan Pokémon, suben de nivel y desbloquean medallas, creando una experiencia motivadora para completar objetivos.
+### Task Management
+- Create tasks with a title, description, and due date
+- View scheduled tasks in a calendar
+- Track pending and completed tasks
+- Earn experience by completing tasks
 
----
+### Progression System
+- XP-based trainer levels
+- Starter Pokémon selection
+- Poké Ball rewards tied to task completion and progression
+- Persistent trainer statistics and progress
 
-## Funcionalidades Principales
+### Pokémon Collection
+- Collect Pokémon from the original 151
+- Multiple Poké Ball types with different capture behavior
+- Pokémon rarity system
+- Interactive Pokédex showing collected and undiscovered Pokémon
+- Select an active Pokémon companion
 
-### 1. Sistema de Tareas
-- Creación de tareas con título, descripción y fecha límite
-- Calendario visual que muestra las tareas programadas por día
-- Marcado de tareas como completadas
-- Vista de tareas pendientes organizadas por fecha
-- Al completar tareas se obtiene experiencia (XP) para el entrenador
+### Evolution and Badges
+- Pokémon progression and evolution mechanics
+- Eight achievement badges with unlock requirements
+- Notifications when progression milestones are reached
 
-### 2. Sistema de Progresión del Entrenador
-- Sistema de niveles basado en experiencia acumulada
-- Cada tarea completada otorga de 10 a 50 XP
-- Se requieren 100 XP por nivel (Nivel 1: 0-99 XP, Nivel 2: 100-199 XP, etc.)
-- Perfil del entrenador que muestra nivel actual, experiencia y estadísticas
-- Selección de Pokémon inicial (Bulbasaur, Charmander o Squirtle) al iniciar
+## Tech Stack
 
-### 3. Colección de Pokémon
-- Al completar tareas se obtienen Pokébolas para capturar Pokémon
-- Sistema de captura con tres tipos de Pokébolas:
-  - Pokébola normal: Mayor probabilidad de Pokémon comunes
-  - Super Ball: Mejor probabilidad de Pokémon raros
-  - Ultra Ball: Mayor posibilidad de Pokémon muy raros
-  - Master Ball: Garantiza un Pokémon de rareza 5 (legendarios/starters)
-- 151 Pokémon de la primera generación disponibles para capturar
-- Sistema de rareza (1 a 5 estrellas)
-- Los Pokémon capturados se añaden a la colección del usuario
+- **React Native** — cross-platform mobile UI
+- **Expo SDK 54** — development and mobile runtime
+- **React Navigation** — stack and tab navigation
+- **AsyncStorage** — local persistent storage
+- **Expo Notifications** — local notifications
+- **Dimensions API** — adaptive layouts for different screen sizes
+- **PokéAPI assets** — Pokémon sprites
 
-### 4. Sistema de Evolución
-- Los Pokémon pueden evolucionar al alcanzar cierto nivel
-- El nivel del Pokémon aumenta conforme el entrenador completa tareas
-- Alertas visuales cuando un Pokémon está listo para evolucionar
-- Evolución manual desde la pantalla de colección
+## Application Structure
 
-### 5. Pokédex Interactiva
-- Visualización de los 151 Pokémon en orden numérico
-- Pokémon capturados se muestran a color con su nombre
-- Pokémon no capturados aparecen oscurecidos con "???" como nombre
-- Contador de Pokémon capturados vs total (X/151)
-- Diseño responsivo que se adapta a diferentes tamaños de pantalla
+The application is organized around four primary areas:
 
-### 6. Sistema de Medallas
-- 8 medallas inspiradas en los líderes de gimnasio de Kanto
-- Cada medalla requiere capturar ciertos Pokémon específicos
-- Notificaciones al obtener una nueva medalla
-- Vista de medallas en el perfil del entrenador
-- Detalle de requisitos para cada medalla
+- **Home** — pending tasks, active Pokémon, progression, and rewards
+- **Calendar** — tasks organized by date
+- **Pokédex** — Pokémon collection and discovery progress
+- **Profile** — trainer information, badges, collection, and settings
 
-### 7. Recompensas Especiales
-- Master Ball otorgada cada 50 niveles (niveles 50, 100, 150, etc.)
-- Master Ball garantiza captura de Pokémon de rareza 5
-- Sistema anti-duplicados: la Master Ball no dará Pokémon legendarios repetidos hasta tener todos
+Navigation is implemented with React Navigation using both stack and bottom-tab navigators.
 
-### 8. Pokémon Compañero
-- Selección de un Pokémon activo como compañero
-- El compañero aparece en la pantalla principal
-- Se puede cambiar el compañero desde la colección
-- El Pokémon activo puede evolucionar
+## Local Persistence
 
----
+Application data is stored locally with AsyncStorage, including:
 
-## Estructura de la Aplicación
+- Tasks and completion state
+- Trainer level and XP
+- Pokémon collection
+- Active Pokémon
+- Poké Ball inventory
+- Unlocked badges
+- Starter selection
 
-La aplicación está dividida en cuatro pantallas principales accesibles desde la navegación inferior:
+This allows user progress to persist between application sessions without requiring a remote backend.
 
-1. **Inicio**: Vista de tareas pendientes, Pokémon compañero y contador de Pokébolas
-2. **Calendario**: Organización visual de tareas por fecha
-3. **Pokédex**: Colección completa de los 151 Pokémon
-4. **Perfil**: Información del entrenador, medallas, colección y configuración
+## Responsive Design
 
----
+PokéPlanner adapts its interface to different screen dimensions using React Native's Dimensions API. The UI was designed to remain usable across different phone and larger-screen sizes.
 
-## Tecnologías Utilizadas
+## Running the Project
 
-- React Native
-- Expo SDK 54
-- React Navigation (Tab y Stack Navigation)
-- AsyncStorage para persistencia de datos
-- Dimensions API para diseño responsivo
-- PokeAPI para sprites de Pokémon
+### Requirements
 
----
+- Node.js
+- npm
+- Expo Go or an Android/iOS development environment
 
-## Persistencia de Datos
+### Installation
 
-Toda la información se guarda localmente en el dispositivo usando AsyncStorage:
-- Progreso del entrenador (nivel, XP, tareas completadas)
-- Lista de tareas con sus estados
-- Colección de Pokémon capturados
-- Pokémon activo como compañero
-- Cantidad de Pokébolas de cada tipo
-- Medallas obtenidas
-- Pokémon inicial seleccionado
+Clone the repository and install its dependencies:
 
----
+```bash
+git clone https://github.com/saw-cdt/PIA-AppsMoviles.git
+cd PIA-AppsMoviles
+npm install
+```
 
-## Botones de Prueba
+Start the Expo development server:
 
-**NOTA IMPORTANTE:** La aplicación incluye botones de prueba en la pantalla de perfil para facilitar la demostración y evaluación del proyecto:
+```bash
+npx expo start
+```
 
-- **+50 XP**: Añade experiencia instantánea para probar el sistema de niveles
-- **Añadir Pokébolas**: Otorga Pokébolas de prueba para capturar Pokémon
+From the Expo development server, run the application on a supported Android or iOS device.
 
-Estos botones son únicamente para propósitos de desarrollo y prueba. En una versión final de la aplicación destinada a usuarios, estos controles serían removidos y todo el progreso se obtendría exclusivamente completando tareas.
+## Development Utilities
 
----
+The profile screen contains development controls for quickly testing progression mechanics such as XP gains and Poké Ball rewards. These controls are intended for development and demonstration purposes.
 
-## Instalación y Ejecución
+## About the Project
 
-1. Clonar el repositorio
-2. Navegar a la carpeta del proyecto
-3. Instalar dependencias:
-   ```
-   npm install
-   ```
-4. Iniciar el servidor de desarrollo:
-   ```
-   npx expo start
-   ```
-5. Escanear el código QR con la aplicación Expo Go (Android/iOS) o presionar 'w' para abrir en navegador web
-
----
-
-## Diseño Responsive
-
-La aplicación está optimizada para diferentes tamaños de pantalla:
-- Smartphones pequeños (menos de 360px)
-- Smartphones medianos (360-600px)
-- Tablets (600-800px)
-- Pantallas grandes y web (más de 800px)
-
-Los elementos se ajustan automáticamente en tamaño y distribución según el dispositivo.
-
----
-
-
-## Conclusión
-
-Este proyecto demuestra la aplicación de conceptos fundamentales de desarrollo móvil como navegación entre pantallas, manejo de estado, persistencia de datos, componentes reutilizables, y diseño adaptativo. La integración de mecánicas de gamificación busca motivar a los usuarios a mantener buenos hábitos de organización de manera entretenida.
-
+PokéPlanner was developed as a mobile application project focused on applying core mobile engineering concepts including multi-screen navigation, state management, local persistence, reusable components, notifications, and adaptive interface design.
